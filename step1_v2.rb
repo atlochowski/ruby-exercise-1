@@ -9,11 +9,12 @@ until input == 4
   puts "4. Quit"
   
   input = gets.chomp.to_i
-  if input > 4
-    puts "Numer should be 1-4"
-  end
+  if input > 4 || input < 1 
+    puts "Number should be 1-4"
+  else
   case input
   when 1
+    puts "Enter album:"
     album = gets.chomp
     if array.include?(album)
       puts "Album already exists"
@@ -22,10 +23,12 @@ until input == 4
       puts "Album added"
     end
    when 2
+     puts "Enter album to delete:"
      album = gets.chomp
-     puts array.include?(album) ? array.delete(album) : "Album doesn't exist"
+     if array.delete(album) then puts "Album deleted" else puts "Album doesn't exist" end
      
    when 3
      puts array
+   end
    end
 end
